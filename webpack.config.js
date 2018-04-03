@@ -1,6 +1,7 @@
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
@@ -14,7 +15,8 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+      { test: /\.css$/, exclude: /node_modules/, use: ["style-loader", "css-loader"]}
     ]
   },
   resolve: {
@@ -25,6 +27,20 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: 'index.html'
-    })
-  ]
+    }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  devServer: {
+    contentBase: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+    compress: true,
+    historyApiFallback: true,
+    hot: true,
+    host: "0.0.0.0",
+    port: 4001,
+    // watchOptions: {
+    //   ignored: /node_modules/,
+    // }
+  }
 }

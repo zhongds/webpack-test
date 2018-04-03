@@ -1,10 +1,12 @@
 import React from 'react';
 
-class Home extends React.PureComponent {
+import './style.css';
+
+export default class Home extends React.PureComponent {
 
   render() {
     return (
-      <div>Home.......</div>
+      <div className='bg'>Home111222.......</div>
     )
   }
 }
