@@ -7,7 +7,7 @@ const webpackConfig = require('./webpack.config');
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = merge(webpackConfig, {
-  devtool: 'eval-source-map',  
+  devtool: 'source-map',  
   plugins: [
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
