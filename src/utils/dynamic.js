@@ -6,6 +6,6 @@ import Loading from 'common/LoadingComponent'
 export default function dynamic(loader) {
   return Loadable({
     loader,
-    loading,
+    loading: Loading,
   });
 }
