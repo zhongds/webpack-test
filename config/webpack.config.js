@@ -1,15 +1,17 @@
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const webpack = require('webpack');
+
+const { appDirectory, distDirectory } = require('./paths');
+console.log('dist', distDirectory);
 
 module.exports = {
   mode: 'development',
   entry: {
-    index: path.resolve(__dirname, 'index.js')
+    index: path.resolve(appDirectory, 'index.js')
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: distDirectory,
     filename: '[name].js',
     publicPath: '/' ,
   },
@@ -22,25 +24,12 @@ module.exports = {
   resolve: {
     extensions: ['.js']
   },
-  devtool: 'source-map',
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['dist'], {
+      root: appDirectory
+    }),
     new HtmlWebpackPlugin({
       template: 'index.html'
     }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
   ],
-  devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
-    compress: true,
-    historyApiFallback: true,
-    hot: true,
-    host: "0.0.0.0",
-    port: 4001,
-    // watchOptions: {
-    //   ignored: /node_modules/,
-    // }
-  }
 }
