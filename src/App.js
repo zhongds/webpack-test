@@ -1,9 +1,11 @@
 import React from 'react'
 import { NavLink, Route, Switch, Redirect } from 'react-router-dom'
 
-import Home from './components/Home'
-import Test from './components/Test'
-import Settings from './components/Settings'
+// import Home from './components/Home'
+// import Test from './components/Test'
+// import Settings from './components/Settings'
+
+import dynamic from 'utils/dynamic'
 
 import './App.scss'
 
@@ -19,9 +21,9 @@ function App() {
       </div>
       <div className="content" >
         <Switch>
-          <Route path="/home" component={Home}/>
-          <Route path="/test" component={Test}/>
-          <Route path="/settings" component={Settings}/>
+          <Route path="/home" component={dynamic(() => import('components/Home'))}/>
+          <Route path="/test" component={dynamic(() => import('components/Test'))}/>
+          <Route path="/settings" component={dynamic(() => import('components/Settings'))}/>
           <Redirect path="/" to="/home" />
         </Switch>
       </div>
