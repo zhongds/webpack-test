@@ -3,7 +3,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const { rootDirectory, distDirectory, appDirectory } = require('./paths');
-console.log('app', appDirectory);
 
 module.exports = {
   mode: 'development',
@@ -30,9 +29,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'], {
-      root: rootDirectory
-    }),
     new HtmlWebpackPlugin({
       template: 'index.html'
     }),
