@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm test",
     "build": "webpack --config config/webpack.config.prod.js",
-    "start": "webpack-dev-server --config config/webpack.config.dev.js",
+    "start": "webpack-dev-server --config config/webpack.config.dev.js --port 4002",
     "babel": "babel test.js -o bundle.js"
   },
   "repository": {
@@ -23,11 +23,14 @@
   },
   "homepage": "https://github.com/zhongds/webpack-test#readme",
   "dependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.44",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.44",
     "@babel/runtime": "^7.0.0-beta.44",
     "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.1.4",
     "html-webpack-plugin": "^3.1.0",
     "react-loadable": "^5.3.1",
+    "url-loader": "^1.0.1",
     "webpack": "^4.5.0",
     "webpack-dev-server": "^3.1.1",
     "webpack-merge": "^4.1.2"
@@ -43,6 +46,8 @@
     "babel-loader": "^8.0.0-beta.2",
     "babel-plugin-import": "^1.7.0",
     "css-loader": "^0.28.11",
+    "dva": "^2.2.2",
+    "dva-loading": "^2.0.0",
     "file-loader": "^1.1.11",
     "less": "^3.0.1",
     "less-loader": "^4.1.0",

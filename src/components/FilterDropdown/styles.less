@@ -1,0 +1,105 @@
+.wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.dropWrapper{
+    position: absolute;
+    // right: 0;
+    // top: 100%;
+    z-index: 666;
+    transform: translate(-50%, 0);
+    padding-bottom: 35px;
+    background: white;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    ul {
+        margin-bottom: 0;
+    }
+    li {
+        display: block;
+        padding: 5px 12px;
+        padding-right: 50px;
+        min-width: 106px;
+        line-height: 22px;
+        font-weight: normal;
+        color: #3D4357;
+        white-space: nowrap;
+        cursor: pointer;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        &:hover {
+            background: #f0feff;
+        }
+    }
+}
+
+.select{
+    overflow-y: auto;
+    max-height: 190px;
+}
+
+.option{
+    position: relative;
+}
+.checkBox{
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.checkBoxIcon{
+    position: absolute;
+    z-index: 98;
+    right: 7px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.button{
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    right: 7px;
+    transform: translate(0, -50%);
+}
+.leftButton{
+    margin-right: 10px;
+}
+.modeSwitch{
+    position: absolute;
+    z-index: 100;
+    left: 12px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.buttonOption{
+    height: 35px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white!important;
+}
+.hide{
+    display: none;
+}
+.buttonWrapper{
+    width: 100%;
+    height: 100%;
+}
+
+.withScroll{
+    .button{
+        right: 20px;
+    }
+}
+
+.searchArea{
+    background: white!important;
+    padding: 6px 9px 5px 9px;
+    min-width: 160px;
+}

@@ -1,0 +1,90 @@
+$height:100%;
+@mixin flex($content:space-between, $direction:row) {
+    display: flex;
+    justify-content: $content;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+%list {
+    @include flex();
+    width: $height;
+    height: $height;
+}
+
+.root {
+    height: $height;
+    @include flex($direction: column);
+    .top {
+        height: calc(77% - 8px);
+        width: $height;
+        @include flex();
+        .left {
+            width: calc(84% - 8px);
+            height: $height;
+            ul {
+                @extend %list;
+                li {
+                    height: $height;
+                    float: left;
+                    width: calc((#{$height} - 24px) / 4);
+                    background: #ffffff;
+                    h4 {
+                        line-height: 42px;
+                        padding-right: 8px;
+                        margin-bottom: 0;
+                        text-align: center;
+                        font-weight: 600;
+                        color: #ffffff;
+                        :global(.anticon) {
+                            float: right;
+                            line-height: 42px;
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+        }
+        .right {
+            height: $height;
+            width: 16%;
+            background: #ffffff;
+            padding-top: 40px;
+            border: 1px solid #FD803E;
+            position: relative;
+            &::before {
+                display: block;
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-top: 40px solid #FD7345;
+                border-left: 40px solid transparent;
+                top: 0;
+                right: 0;
+            }
+        }
+    }
+    .bottom {
+        width: $height;
+        height: 23%;
+        ul {
+            @extend %list;
+            li {
+                float: left;
+                height: $height;
+                width: calc((#{$height} - 40px) / 6);
+                @include flex($content: space-around, $direction:column);
+                padding: 8px 0;
+                color: #ffffff;
+                :global(.anticon) {
+                    font-size: 40px;
+                }
+                span{
+                  font-size: 16px;
+                  font-weight: 600;
+                }
+            }
+        }
+    }
+}

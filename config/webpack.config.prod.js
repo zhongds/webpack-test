@@ -6,7 +6,7 @@ const webpackConfig = require('./webpack.config');
 const { rootDirectory } = require('./paths');
 
 module.exports = merge(webpackConfig, {
-  mode: 'production',
+  // mode: 'production',
   devtool: 'source-map',
   plugins: [
     new CleanWebpackPlugin(['dist'], {

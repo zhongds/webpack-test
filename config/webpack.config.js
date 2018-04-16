@@ -20,7 +20,7 @@ const lessLoader = {
 
 module.exports = {
   entry: {
-    index: path.resolve(rootDirectory, 'index.js')
+    index: path.resolve(appDirectory, 'index.js')
   },
   output: {
     path: distDirectory,
@@ -60,20 +60,25 @@ module.exports = {
           lessLoader,
         ]
       },
-      { test: /\.(scss||sass)$/, exclude: /node_modules/, use: ["style-loader", "css-loader", "sass-loader"]},
+      { test: /\.(scss||sass)$/,
+        exclude: /node_modules/,
+        use: [
+          "style-loader",
+          cssLoaderWithModule, 
+          "sass-loader"
+        ]
+      },
       // {
       //   test: /\.(woff|woff2|eot|ttf|otf)$/,
-      //    use: [
-      //      'file-loader'
-      //    ]
+      //   loader: 'file-loader'
       // },
-      // {
-      //   test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-      //   loader: 'url-loader',
-      //   options: {
-      //     limit: 10000
-      //   }
-      // }
+      {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+        }
+      }
     ]
   },
   resolve: {
@@ -85,7 +90,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      template: path.resolve(appDirectory, 'index.ejs'),
     }),
   ],
 }

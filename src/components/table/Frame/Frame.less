@@ -1,0 +1,72 @@
+.wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    padding-top: 0;    
+}
+
+.top{
+    padding: 0px 15px 12px 5px;
+    >div{
+        float: left;
+        margin: 10px;
+        min-width: 130px;
+        >*{
+            width: 100%;
+        }
+    }
+    .search, .last{
+        float: right;
+        margin-right: 40px;
+        width: 260px;
+    }
+}
+.top:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.middle{
+    padding: 15px;
+    padding-top: 0px;
+    .link{
+        text-decoration: underline;
+        color: #1890ff;
+        cursor: pointer;
+    }
+    // :global(.ant-pagination){
+    //     position: absolute;
+    //     right: 0;
+    //     bottom: 0;
+    // }
+}
+
+.bottom{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+}
+.bottomStatic, .bottom{
+    padding: 6px 10px 6px 22px;
+    >div{
+        float: left;
+        margin: 6px;
+        min-width: 80px;
+        >*{
+            width: 100%;
+        }
+    }
+    .pagination{
+        float: right;
+        width: auto;
+        padding-right: 15px;
+    }
+    :global(.ant-pagination-options-quick-jumper){
+        input{
+            box-shadow: inset 1px 1px 2px #ccc
+        }
+    }
+}

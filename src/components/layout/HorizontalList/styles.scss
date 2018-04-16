@@ -1,0 +1,9 @@
+.item {
+    display: inline-block;
+    text-align: center;
+    .itemContent{
+        display: inline-block;
+        text-align: initial;
+        width: 98%;
+    }
+}

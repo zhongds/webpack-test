@@ -1,0 +1,19 @@
+.wrapper {
+    :global(.ant-tabs-tab) {
+        &:after {
+            content: '';
+            position: absolute;
+            left: calc(~'100% + 16px');
+            top: 50%;
+            transform: translate(0, -50%);
+            width: 1px;
+            height: 1em;
+            background: #dbdbdb;
+        }
+    }
+    :global(.ant-tabs-tab:last-child ){
+        &:after {
+            display: none;
+        }  
+    }
+}

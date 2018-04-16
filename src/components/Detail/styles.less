@@ -1,0 +1,31 @@
+.detailItem {
+    float: left;
+    width: 50%;
+    border-width: 1px 1px 0;
+    border-color: #999;
+    border-style: solid;
+    span{
+        float: left;
+        height: 2em;
+        line-height: 1.9em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 65%;
+        padding-left: 3%;
+    }
+    .title {
+        width: 35%;
+        border-right: solid 1px #999;
+    }
+}
+.detail {
+    border-width: 0 0 1px 1px;
+    border-color: #999;
+    border-style: solid;
+}
+.detail:after {
+    content: '';
+    display: block;
+    clear: both;
+}

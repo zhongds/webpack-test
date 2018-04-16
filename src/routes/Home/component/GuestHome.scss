@@ -1,0 +1,124 @@
+$height:100%;
+$back:#cdeeff;
+$color:#1eacfe;
+$active:#00A7FF;
+@mixin between($value:row) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: $value;
+}
+
+@mixin font {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.root {
+    @include between;
+    height: $height;
+    >div {
+        height: $height;
+    }
+    .left {
+        width: 240px;
+        ul {
+            height: $height;
+            @include between(column);
+            li {
+                @include between;
+                width: $height;
+                height: calc(( 100% - 32px) / 5);
+                color: #ffffff;
+                cursor: pointer;
+                :global {
+                    .anticon {
+                        width: 60px;
+                        font-size: 26px;
+                    }
+                }
+                >div {
+                    width: 180px;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    .center {
+        width: 590px;
+        .carousel {
+            height: calc(( 100% - 32px) / 5 * 3 + 16px);
+            :global {
+                .ant-carousel {
+                    height: $height;
+                    .slick-initialized,
+                    .slick-slide {
+                        height: $height;
+                        background: skyblue;
+                        text-align: center;
+                        h1 {
+                            color: #ffffff;
+                            font-size: 150px;
+                        }
+                    }
+                }
+            }
+        }
+        .news {
+            height: calc(( 100% - 32px) / 5 * 2 + 8px);
+            margin-top: 8px;
+            background: #ffffff;
+            .header {
+                background-color: $back;
+                height: 40px;
+                color: $color;
+                border-left: 8px solid $active;
+                padding-left: 20px;
+                display: flex;
+                align-items: center;
+                :global(.anticon) {
+                    font-size: 24px;
+                }
+                >span {
+                    @include font;
+                    padding-left: 20px;
+                }
+            }
+            ul {
+                li {
+                    line-height: 16px;
+                    padding: 8px 20px;
+                    :global {
+                        a {
+                            >span,
+                            .anticon {
+                                color: #666666;
+                            }
+                        }
+                    }
+                    .date {
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+    .right {
+        width: 340px;
+        background-color: #ffffff;
+        :global {
+            .ant-tabs-bar {
+                border-bottom-color: transparent;
+                background-color: $back;
+                color: #70CEFF;
+                margin-bottom: 0;
+                .ant-tabs-tab {
+                  @include font();
+                }
+                .ant-tabs-ink-bar{
+                  height: 3px;
+                }
+            }
+        }
+    }
+}

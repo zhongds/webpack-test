@@ -1,0 +1,25 @@
+$sh:100%;
+
+.root {
+    height: $sh;
+    background-color: #e5f2fb;
+    .banner{
+      background: url('../../assets/images/banner.png') no-repeat center;
+      height: 206px;
+      background-size: cover;
+    }
+    .content {
+        height: calc(100% - 356px);
+        width: 1190px;
+        margin: 0 auto;
+        padding: 8px 0;
+    }
+    .footer {
+        width: $sh;
+        height: 150px;
+        background-color: #161e29;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
+}

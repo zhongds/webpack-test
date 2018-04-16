@@ -1,0 +1,20 @@
+:global {
+  .ant-table-thead {
+      tr {
+          th {
+              background-color: #ffffff;
+              border-bottom: none;
+              span {
+                  color: #00A8FF;
+              }
+          }
+      }
+  }
+  .ant-table-tbody {
+      tr {
+          td {
+              border-bottom: none;
+          }
+      }
+  }
+}

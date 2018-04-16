@@ -1,0 +1,36 @@
+.root {
+    height: 100vh;
+    background: #E5F2FB;
+}
+
+.header {
+    height: 64px;
+    line-height: 64px;
+    padding: 0 50px;
+    background-color: #161e29;
+}
+
+.logo {
+    margin: 0 16px 0 0;
+    float: left;
+    h3 {
+        margin: 0 0 0 56px;
+        color: #666561;
+        position: relative;
+        font-weight: bold;
+    }
+    h3::before {
+        display: block;
+        content: '';
+        width: 32px;
+        height: 100%;
+        position: absolute;
+        left: -48px;
+        top: 0px;
+        background: url('../../assets/images/badge.png') no-repeat center;
+    }
+}
+
+.content {
+    height: calc(100% - 64px);
+}

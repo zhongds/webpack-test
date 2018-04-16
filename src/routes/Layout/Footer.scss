@@ -1,0 +1,44 @@
+.root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    ul {
+        li {
+            float: left;
+            color: #cfd3d6;
+        }
+    }
+    .menu {
+        li {
+            padding: 0 16px;
+            position: relative;
+        }
+        li+li::before {
+            position: absolute;
+            display: block;
+            content: '';
+            width: 1px;
+            height: 12px;
+            background-color: #cfd3d6;
+            left: 0px;
+            top: 6px;
+        }
+    }
+    .logo {
+        li {
+            height: 32px;
+            width: 32px;
+            background: url('../../assets/images/badge.png') no-repeat center;
+            padding: 0 32px;
+        }
+    }
+    .info {
+        li {
+            color: #49617d;
+            padding: 0 32px;
+        }
+    }
+}

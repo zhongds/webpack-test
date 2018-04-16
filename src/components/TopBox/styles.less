@@ -1,0 +1,45 @@
+@color: #00A8FF;
+@height: 32px;
+.wrapper {
+    position: relative;
+    box-sizing: content-box!important;
+    height: @height;
+    color: @color;
+    background: #CDEEFF;
+    > * {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.colorBlock {
+    height: 100%;
+    width: 7px;
+    background: @color;
+    margin-right: 8px;
+}
+
+.title {
+    height: @height;
+    color: @color;
+    // font-weight: bold;
+    font-size: 16px;
+    > * {
+        float: left;
+        margin: 0 7px;
+        line-height: @height;
+    }
+    i {
+        line-height: @height;
+        font-size: 22px;
+    }
+}
+
+.more {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: @color;
+    cursor: pointer;
+}

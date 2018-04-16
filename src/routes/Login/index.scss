@@ -1,0 +1,74 @@
+@mixin flex($justify:center, $align:center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.root {
+    height: 100vh;
+    background: url('../../assets/images/bg.png') no-repeat center;
+    background-size: cover;
+    @include flex;
+    .header {
+        background-color: #00a8ff;
+        height: 45px;
+        padding-left: 75px;
+        color: #ffffff;
+        text-shadow: 2px 2px 2px black;
+        padding-top: 13px;
+        position: relative;
+        .title {
+            font-size: 20px;
+            font-weight: 400;
+            height: 20px;
+            letter-spacing: 1px;
+        }
+        .adress {
+            font-size: 18px;
+        }
+    }
+    .header::before {
+        display: block;
+        content: "";
+        position: absolute;
+        height: 62px;
+        width: 62px;
+        background: url('../../assets/images/color-badge.png');
+        left: 13px;
+    }
+    .mark {
+        text-align: center;
+        color: #00a8ff;
+    }
+    .login {
+        background-color: #ffffff;
+        width: 430px;
+        height: 420px;
+        border-radius: 5px;
+        input {
+            border: none;
+            border-bottom: 1px solid #dcdcdc;
+            outline: none;
+            border-radius: 0;
+            box-shadow: 0 0 0px 1000px white inset !important;
+            width: 305px;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-bottom-color: #40a9ff;
+        }
+        .btn {
+            width: 305px;
+            height: 45px;
+        }
+        .center {
+            @include flex;
+        }
+        .between {
+            @include flex(space-between);
+            a {
+                padding-left: 150px;
+            }
+        }
+    }
+}
