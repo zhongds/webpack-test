@@ -7,13 +7,10 @@ module.exports = {
     // "./babel-plugin-transform-vname",
     ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }, "antd"],    
     ["import", 
-      { "libraryName": "aa", "libraryDirectory": "", 
-      "camel2DashComponentName": false, 
-      "style": function(path) {
-        console.log('style load===============');
-        console.log(path);
-        return `${path}/index.less`;
-      }},
+      { "libraryName": "aa",
+      "camel2DashComponentName": false,
+      "libraryDirectory": "",
+      },
       "aa"
     ],
   ]
