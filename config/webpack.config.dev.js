@@ -8,7 +8,7 @@ console.log('port', process.env.NODE_ENV);
 
 module.exports = merge(webpackConfig, {
   mode: 'development',  
-  devtool: 'source-map',  
+  devtool: 'source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
