@@ -28,14 +28,15 @@ module.exports = {
   },
   output: {
     path: distDirectory,
-    filename: '[name].[hash:5].js',
-    chunkFilename: '[name].[chunkhash:5].chunk.js',
+    filename: '[name].js',
+    // chunkFilename: '[name].[chunkhash:5].chunk.js',
     publicPath: '/' ,
   },
+  profile: true,
   optimization: {
-    runtimeChunk: {
-      name: 'manifest',
-    },
+    // runtimeChunk: {
+    //   name: 'manifest',
+    // },
     splitChunks: {
       chunks: "async",
       minSize: 30000,
@@ -45,6 +46,13 @@ module.exports = {
       automaticNameDelimiter: '~',
       name: true,
       cacheGroups: {
+        // 从index.js抽取出commons.js, 避免不必要的重新编译 
+        commons: {
+          name: "commons",
+          test: /[\\/]node_modules[\\/]/,
+          chunks: "initial",
+          reuseExistingChunk: true,
+        },
         vendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10
@@ -54,12 +62,12 @@ module.exports = {
           priority: -20,
           reuseExistingChunk: true
         },
-        styles: {
-          name: 'styles',
-          test: /\.css$/,
-          chunks: 'initial',
-          enforce: true
-        }
+        // styles: {
+        //   name: 'styles11',
+        //   test: /\.css$/,
+        //   chunks: 'initial',
+        //   enforce: true
+        // }
       }
     }
   },
@@ -161,5 +169,16 @@ module.exports = {
         lessLoader,
       ]
     }),
+    new webpack.ContextReplacementPlugin(
+      /moment[\/\\]locale$/,
+      /zh-cn/
+    ),
+    // new webpack.DllReferencePlugin({
+    //   // context: __dirname,
+    //   manifest: require(path.resolve(rootDirectory, "dll/vendor-manifest.json")),
+    //   // name: "./my-dll.js",
+    //   // scope: "xyz",
+    //   // sourceType: "commonjs2"
+    // })
   ],
 }

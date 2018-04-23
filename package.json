@@ -6,8 +6,11 @@
   "scripts": {
     "test": "npm test",
     "build": "webpack --config config/webpack.config.prod.js",
+    "build:dll": "webpack --config config/webpack.dll.config.js",
+    "build:detail": "webpack --config config/webpack.config.prod.js --display-modules --sort-modules-by size",
     "start": "webpack-dev-server --config config/webpack.config.dev.js --port 4002",
-    "babel": "babel test.js -o bundle.js"
+    "babel": "babel test.js -o bundle.js",
+    "analyse": "webpack-bundle-analyzer -r -s stats.json dist"
   },
   "repository": {
     "type": "git",
